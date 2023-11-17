@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "519414186264",
+    "project_id": "superhoodcleaningfirebase",
+    "storage_bucket": "superhoodcleaningfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519414186264:android:e9fcf54f864784d8ec9e6d",
+        "android_client_info": {
+          "package_name": "com.example.superhoodcleaning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqa6Y_1L2tw9DGnY-_8ERe284BtGNYcwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
