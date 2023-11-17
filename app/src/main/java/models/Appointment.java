@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Appointment {
     private String customerId;
-    private LocalDate date;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private String date;
+    private String startTime;
+    private String endTime;
     private ArrayList<String> staffs;
 
 	public String getCustomerId() {
@@ -20,27 +20,27 @@ public class Appointment {
 		this.customerId = customerId;
 	}
 
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public LocalTime getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalTime startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalTime getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalTime endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
@@ -52,7 +52,7 @@ public class Appointment {
 		this.staffs = staffs;
 	}
 
-	public Appointment(String customerId, LocalDate date, LocalTime startTime, LocalTime endTime, ArrayList<String> staffs) {
+	public Appointment(String customerId, String date, String startTime, String endTime, ArrayList<String> staffs) {
 		this.customerId = customerId;
 		this.date = date;
 		this.startTime = startTime;

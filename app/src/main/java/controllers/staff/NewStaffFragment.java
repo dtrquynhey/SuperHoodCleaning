@@ -45,11 +45,11 @@ public class NewStaffFragment extends Fragment {
         );
     }
     private void btnAdd() {
-        String firstName = "Ajinkya";
-        String lastName = "Bhintade";
-        String email = "aj91@gmail.com";
+        String firstName = "Haitham";
+        String lastName = "Elkalmoushy";
+        String email = "haitham@gmail.com";
         String phone = "4389991010";
-        String photoUrl = "https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2Fimage_2.png?alt=media&token=70e8f9c3-586c-4e54-bce0-ea25a2913ff2";
+        String photoUrl = "https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2Fhaitham.png?alt=media&token=b634fbac-2269-47a9-8b9a-60becbf4feac";
 
         addStaff(firstName, lastName, email, phone, photoUrl);
     }

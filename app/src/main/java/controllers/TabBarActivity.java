@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.example.superhoodcleaning.R;
 
+import controllers.appointment.ModifyAppointmentFragment;
+import controllers.appointment.NewAppointmentFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
 import controllers.staff.ModifyStaffFragment;
@@ -35,10 +37,13 @@ public class TabBarActivity extends AppCompatActivity {
             ModifyCustomerFragment modifyCustomerFragment = new ModifyCustomerFragment();
             NewStaffFragment newStaffFragment = new NewStaffFragment();
             ModifyStaffFragment modifyStaffFragment = new ModifyStaffFragment();
-
+            NewAppointmentFragment newAppointmentFragment = new NewAppointmentFragment();
+            ModifyAppointmentFragment modifyAppointmentFragment = new ModifyAppointmentFragment();
+            
+            
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, modifyStaffFragment)
+                    .replace(R.id.fragment_container, modifyAppointmentFragment)
                     .commit();
         }
     }
