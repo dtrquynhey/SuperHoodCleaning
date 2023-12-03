@@ -2,4 +2,12 @@
     <string name="app_name">SuperHoodCleaning</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fab_description">Button to add customer or staff</string>
+    <string name="bottom_navigation">bottom navigation</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="search">Search</string>
+    <string name="to_schedule_dummy">To Schedule</string>
+    <string name="new_staff_dummy">New Staff</string>
+    <string name="modify_staff_dummy">Modify Staff</string>
+    <string name="customer_management_dummy">Customer Management</string>
 </resources>
