@@ -45,11 +45,13 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.jakewharton.threetenabp:threetenabp:1.3.0")
+    implementation ("com.squareup.picasso:picasso:2.71828")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.google.dagger:hilt-android:2.40.5")
     annotationProcessor("com.google.dagger:hilt-compiler:2.40.5")
+
 
 }
 
