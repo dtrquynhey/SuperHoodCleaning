@@ -49,7 +49,7 @@ public class TabBarActivity extends AppCompatActivity {
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, modifyStaffFragment)
+                    .replace(R.id.fragment_container, newCustomerFragment)
                     .commit();
         }
     }
