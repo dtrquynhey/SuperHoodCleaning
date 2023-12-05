@@ -2,13 +2,222 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="controllers.staff.ModifyStaffFragment">
-
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="controllers.staff.ModifyStaffFragment"
+    android:background="#1E1E1E">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/modify_staff_dummy"
-        android:fontFamily="@font/fredoka_one"
-        android:textColor="@color/app_yellow"/>
+        android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#141313"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/tvModifyMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modify Member"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="#FBE056"
+        />
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/new_staff_view"
+        />
+        <TextView
+            android:id="@+id/lblFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name:"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/edFirstName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/lblFirstName"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back3"
+            />
+
+        <TextView
+            android:id="@+id/lblLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LastName:"
+            app:layout_constraintTop_toBottomOf="@id/edFirstName"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/edLastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/lblLastName"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            app:layout_constraintEnd_toEndOf="@id/edFirstName"
+            android:background="@drawable/back3"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/lblEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            app:layout_constraintTop_toBottomOf="@id/edLastName"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/lblEmail"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            app:layout_constraintEnd_toEndOf="@id/edFirstName"
+            android:background="@drawable/back3"
+            />
+
+
+        <TextView
+            android:id="@+id/lblPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone:"
+            app:layout_constraintTop_toBottomOf="@id/edEmail"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/edPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:inputType="text"
+            app:layout_constraintTop_toBottomOf="@id/lblPhone"
+            app:layout_constraintStart_toStartOf="@id/lblFirstName"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back3"
+            app:layout_constraintEnd_toEndOf="@id/edFirstName"
+            />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_one"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintRight_toRightOf="@id/imageView"
+            app:layout_constraintLeft_toLeftOf="@id/imageView"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/new_staff_view"
+            android:textColor="@color/black"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            app:layout_constraintTop_toBottomOf="@id/btnUpload"
+            app:layout_constraintRight_toRightOf="@id/imageView"
+            app:layout_constraintLeft_toLeftOf="@id/imageView"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_back_color"
+            android:textColor="@color/white"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/new_staff_view2"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            app:layout_constraintBaseline_toBaselineOf="@id/btnUpdate"
+            app:layout_constraintLeft_toRightOf="@id/btnUpdate"
+            android:layout_marginLeft="150dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_back_color"
+            android:textAllCaps="false"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
