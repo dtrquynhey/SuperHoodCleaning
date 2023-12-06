@@ -1,10 +1,15 @@
 package models;
 
 public class Customer {
+    private String customerId;
     private String name;
     private String manager;
     private Address address;
     private String phone;
+
+    public String getCustomerId() {
+        return customerId;
+    }
 
     public String getName() {
         return name;

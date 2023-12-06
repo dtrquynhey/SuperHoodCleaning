@@ -12,6 +12,10 @@ import com.example.superhoodcleaning.R;
 
 
 public class ManageCustomerFragment extends Fragment {
+
+    public static ManageCustomerFragment newInstance(){
+        return new ManageCustomerFragment();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

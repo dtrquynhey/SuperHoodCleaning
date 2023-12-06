@@ -1,18 +1,29 @@
 package controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import controllers.customer.ManageCustomerFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
 import controllers.staff.ModifyStaffFragment;
 import controllers.staff.NewStaffFragment;
+import models.Customer;
+import services.CustomerAdapter;
 
 public class TabBarActivity extends AppCompatActivity {
 
@@ -29,6 +40,18 @@ public class TabBarActivity extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
 //        floatingActionButton.setVisibility(View.INVISIBLE);
 
+        ListView listView = findViewById(R.id.lvCustomer);
+
+        List<Customer> items = new ArrayList<>();
+        CustomerAdapter adapter = new CustomerAdapter(this, items);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openFragment(position);
+            }
+        });
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
@@ -45,11 +68,29 @@ public class TabBarActivity extends AppCompatActivity {
             ModifyCustomerFragment modifyCustomerFragment = new ModifyCustomerFragment();
             NewStaffFragment newStaffFragment = new NewStaffFragment();
             ModifyStaffFragment modifyStaffFragment = new ModifyStaffFragment();
+            ManageCustomerFragment manageCustomerFragment = new ManageCustomerFragment();
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, newCustomerFragment)
+                    .replace(R.id.fragment_container, manageCustomerFragment)
                     .commit();
         }
+    }
+
+    private void openFragment(int position) {
+        ModifyCustomerFragment fragment = ModifyCustomerFragment.newInstance();
+
+        Bundle args = new Bundle();
+        args.putInt("position", position); // Example of passing the clicked position
+        fragment.setArguments(args);
+
+        // Perform the fragment transaction
+        FragmentManager fragmentManager = getSupportFragmentManager(); // Use getFragmentManager() in older APIs
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        transaction.replace(R.id.fragment_container, fragment); // Replace whatever is in the fragment_container view with this fragment
+        transaction.addToBackStack(null); // and add the transaction to the back stack so the user can navigate back
+
+        transaction.commit(); // Commit the transaction
     }
 }

@@ -17,6 +17,10 @@ import models.Customer;
 import services.FirebaseConnection;
 
 public class ModifyCustomerFragment extends Fragment {
+
+    public static ModifyCustomerFragment newInstance(){
+        return new ModifyCustomerFragment();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
