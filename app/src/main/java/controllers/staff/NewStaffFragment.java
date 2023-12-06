@@ -9,6 +9,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,9 @@ import com.google.firebase.database.DatabaseReference;
 
 import models.Staff;
 import services.FirebaseConnection;
+import services.IAddButton;
 
-public class NewStaffFragment extends Fragment{
+public class NewStaffFragment extends Fragment implements IAddButton {
 
     ActivityResultLauncher activityResultLauncher;
     @Override
@@ -77,4 +79,8 @@ public class NewStaffFragment extends Fragment{
         activityResultLauncher.launch(Intent.createChooser(intent,"select image"));
     }
 
+    @Override
+    public void addButton() {
+        Log.d("MyAppTag", "btn staff clicked");
+    }
 }
