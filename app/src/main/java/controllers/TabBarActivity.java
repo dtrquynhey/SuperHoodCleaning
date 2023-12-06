@@ -1,6 +1,7 @@
 package controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -14,6 +15,7 @@ import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,18 +42,7 @@ public class TabBarActivity extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
 //        floatingActionButton.setVisibility(View.INVISIBLE);
 
-        ListView listView = findViewById(R.id.lvCustomer);
 
-        List<Customer> items = new ArrayList<>();
-        CustomerAdapter adapter = new CustomerAdapter(this, items);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                openFragment(position);
-            }
-        });
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
@@ -77,20 +68,37 @@ public class TabBarActivity extends AppCompatActivity {
         }
     }
 
-    private void openFragment(int position) {
-        ModifyCustomerFragment fragment = ModifyCustomerFragment.newInstance();
-
+//    private void openFragment(int position) {
+//        ModifyCustomerFragment fragment = ModifyCustomerFragment.newInstance();
+//
+//        Bundle args = new Bundle();
+//        args.putInt("position", position); // Example of passing the clicked position
+//        fragment.setArguments(args);
+//
+//        // Perform the fragment transaction
+//        FragmentManager fragmentManager = getSupportFragmentManager(); // Use getFragmentManager() in older APIs
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//
+//        transaction.replace(R.id.fragment_container, fragment); // Replace whatever is in the fragment_container view with this fragment
+//        transaction.addToBackStack(null); // and add the transaction to the back stack so the user can navigate back
+//
+//        transaction.commit(); // Commit the transaction
+//    }
+    public void replaceFragmentWith(Fragment fragment, Serializable data) {
+        // Create a new Bundle to hold the data
         Bundle args = new Bundle();
-        args.putInt("position", position); // Example of passing the clicked position
+
+        // Put the data into the Bundle. Use a key that both sending and receiving fragments understand.
+        args.putSerializable("dataKey", data);
+
+        // Set the arguments for the fragment
         fragment.setArguments(args);
 
-        // Perform the fragment transaction
-        FragmentManager fragmentManager = getSupportFragmentManager(); // Use getFragmentManager() in older APIs
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        // Perform the fragment transaction to replace the current fragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null) // Optional, if you want to add the transaction to the back stack
+                .commit();
 
-        transaction.replace(R.id.fragment_container, fragment); // Replace whatever is in the fragment_container view with this fragment
-        transaction.addToBackStack(null); // and add the transaction to the back stack so the user can navigate back
-
-        transaction.commit(); // Commit the transaction
     }
 }

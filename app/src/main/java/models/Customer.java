@@ -1,6 +1,8 @@
 package models;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private String customerId;
     private String name;
     private String manager;
@@ -48,5 +50,8 @@ public class Customer {
         this.manager = managerName;
         this.address = address;
         this.phone = phone;
+    }
+    public Customer() {
+
     }
 }
