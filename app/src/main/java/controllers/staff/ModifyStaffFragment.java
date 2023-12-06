@@ -18,7 +18,7 @@ public class ModifyStaffFragment extends Fragment {
                              Bundle savedInstanceState) {
         // btnUpdate();
         // btnDelete();
-        return inflater.inflate(R.layout.fragment_modify_staff_fragement, container, false);
+        return inflater.inflate(R.layout.fragment_modify_staff, container, false);
     }
 
     private void updateStaff(String staffId, Staff staff) {
