@@ -1,0 +1,30 @@
+<!-- item_layout.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/staff_container"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/no_one"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Name"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        />
+</LinearLayout>

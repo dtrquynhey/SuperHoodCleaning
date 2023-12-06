@@ -6,9 +6,9 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.example.superhoodcleaning.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import controllers.appointment.ModifyAppointmentFragment;
-import controllers.appointment.NewAppointmentFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
 import controllers.staff.ModifyStaffFragment;
@@ -21,6 +21,14 @@ public class TabBarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_bar);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setBackground(null);
+        bottomNavigationView.getMenu().getItem(2).setEnabled(false);
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+//        floatingActionButton.setVisibility(View.INVISIBLE);
+
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
         if (findViewById(R.id.fragment_container) != null) {
@@ -37,13 +45,10 @@ public class TabBarActivity extends AppCompatActivity {
             ModifyCustomerFragment modifyCustomerFragment = new ModifyCustomerFragment();
             NewStaffFragment newStaffFragment = new NewStaffFragment();
             ModifyStaffFragment modifyStaffFragment = new ModifyStaffFragment();
-            NewAppointmentFragment newAppointmentFragment = new NewAppointmentFragment();
-            ModifyAppointmentFragment modifyAppointmentFragment = new ModifyAppointmentFragment();
-            
-            
+
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, modifyAppointmentFragment)
+                    .replace(R.id.fragment_container, newCustomerFragment)
                     .commit();
         }
     }

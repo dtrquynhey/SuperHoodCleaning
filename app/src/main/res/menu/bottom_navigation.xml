@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/iCalender"
+        android:title="Calender"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:iconTint="@color/white"
+        android:contentDescription="Calender"/>
+    <item
+        android:id="@+id/iSchedule"
+        android:title="To Schedule"
+        android:icon="@drawable/baseline_access_time_24"
+        android:iconTint="@color/white"
+        android:contentDescription="Schedule"/>
+    <item
+        android:id="@+id/placeholder"
+        android:title=""/>
+
+    <item
+        android:id="@+id/iStaff"
+        android:title="Staffs"
+        android:icon="@drawable/icons8_queue"
+        android:iconTint="@color/white"
+        android:contentDescription="Staff Section"/>
+    <item
+        android:id="@+id/iCustomers"
+        android:title="Customers"
+        android:icon="@drawable/baseline_groups_2_24"
+        android:iconTint="@color/white"
+        android:contentDescription="Customer Section"/>
+</menu>
