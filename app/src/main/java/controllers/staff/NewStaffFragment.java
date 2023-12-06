@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import models.Staff;
 import services.FirebaseConnection;
 
-public class NewStaffFragment extends Fragment {
+public class NewStaffFragment extends Fragment{
 
     ActivityResultLauncher activityResultLauncher;
     @Override
