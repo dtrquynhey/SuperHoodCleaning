@@ -77,6 +77,7 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
 
         btnUploadPhotoNewStaff = view.findViewById(R.id.btnUploadPhotoNewStaff);
         btnRemovePhotoNewStaff = view.findViewById(R.id.btnRemovePhotoNewStaff);
+        btnRemovePhotoNewStaff.setEnabled(false);
 
         imageViewPhoto = view.findViewById(R.id.imageViewPhoto);
         btnUploadPhotoNewStaff.setOnClickListener(this);
@@ -92,6 +93,7 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
                             Log.d("ActivityResultDebug", result.toString());
                             Bitmap bitmap = convertPhotoResultToBitMap(result);
                             imageViewPhoto.setImageBitmap(bitmap);
+                            Toast.makeText(getContext(), "Profile picture uploaded!", Toast.LENGTH_SHORT).show();
                         } else {
                             Log.d("ActivityResultDebug", "Result not OK!");
                         }
@@ -108,7 +110,6 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
             photoPath = result.getData().getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), photoPath);
-                Log.d("bitmap", bitmap.toString());
             } catch (Exception e) {
                 Log.d("ADV_FIREBASE", e.getMessage());
             }
@@ -181,10 +182,12 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnUploadPhotoNewStaff) {
-            Log.d("MyAppTag", "btn upload photo clicked");
             browseAndChoosePhoto();
+            btnRemovePhotoNewStaff.setEnabled(true);
         } else if (v.getId() == R.id.btnRemovePhotoNewStaff) {
-
+            imageViewPhoto.setImageResource(R.drawable.no_one);
+            Toast.makeText(getContext(), "Profile picture removed!", Toast.LENGTH_SHORT).show();
+            btnRemovePhotoNewStaff.setEnabled(false);
         }
     }
     private void onPhotoUploadComplete() {
@@ -224,6 +227,7 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
         edEmailNewStaff.setText(null);
         edPhoneNewStaff.setText(null);
         imageViewPhoto.setImageResource(R.drawable.no_one);
+        edFirstNameNewStaff.setCursorVisible(true);
     }
 
 }
