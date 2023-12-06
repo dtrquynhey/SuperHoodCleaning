@@ -12,8 +12,10 @@ import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import controllers.customer.ManageCustomerFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
+import controllers.staff.ManageStaffFragment;
 import controllers.staff.ModifyStaffFragment;
 import controllers.staff.NewStaffFragment;
 import services.IAddButton;
@@ -45,14 +47,16 @@ public class TabBarActivity extends AppCompatActivity {
             }
 
             // Create an instance of the fragment you want to start
+            ManageCustomerFragment manageCustomerFragment = new ManageCustomerFragment();
             NewCustomerFragment newCustomerFragment = new NewCustomerFragment();
             ModifyCustomerFragment modifyCustomerFragment = new ModifyCustomerFragment();
+            ManageStaffFragment manageStaffFragment = new ManageStaffFragment();
             NewStaffFragment newStaffFragment = new NewStaffFragment();
             ModifyStaffFragment modifyStaffFragment = new ModifyStaffFragment();
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, newCustomerFragment)
+                    .replace(R.id.fragment_container, manageStaffFragment)
                     .commit();
 
 
@@ -64,6 +68,14 @@ public class TabBarActivity extends AppCompatActivity {
 
                     if (currentFragment instanceof IAddButton) {
                         ((IAddButton) currentFragment).addButton();
+                    }else if(currentFragment instanceof ManageCustomerFragment){
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, newCustomerFragment)
+                                .commit();
+                    } else if(currentFragment instanceof ManageStaffFragment){
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, newStaffFragment)
+                                .commit();
                     }
                 }
             });
