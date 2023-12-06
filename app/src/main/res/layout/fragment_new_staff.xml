@@ -3,187 +3,182 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="controllers.staff.NewStaffFragment"
-    android:background="#1E1E1E">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#141313"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-    <TextView
-        android:id="@+id/tvNewMember"
+    tools:context="controllers.staff.NewStaffFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_gravity="center">
+
+<LinearLayout
+    android:id="@+id/formStaffModify"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/information_capsule"
+    android:orientation="horizontal"
+    android:layout_margin="20dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintTop_toBottomOf="parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/staffImageForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Member"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="#FBE056"
-        />
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="360dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="240dp"
-        android:background="@drawable/new_staff_view"
-        />
-    <TextView
-        android:id="@+id/lblFirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name:"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/edFirstName"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:ems="6"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/lblFirstName"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/back3"
-        />
-
-    <TextView
-        android:id="@+id/lblLastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LastName:"
-        app:layout_constraintTop_toBottomOf="@id/edFirstName"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/edLastName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="6"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/lblLastName"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        app:layout_constraintEnd_toEndOf="@id/edFirstName"
-        android:background="@drawable/back3"
-        android:layout_marginTop="10dp"
-        />
-
-    <TextView
-        android:id="@+id/lblEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email:"
-        app:layout_constraintTop_toBottomOf="@id/edLastName"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/edEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="6"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/lblEmail"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        app:layout_constraintEnd_toEndOf="@id/edFirstName"
-        android:background="@drawable/back3"
-        />
-
-
-    <TextView
-        android:id="@+id/lblPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone:"
-        app:layout_constraintTop_toBottomOf="@id/edEmail"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/edPhone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="6"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/lblPhone"
-        app:layout_constraintStart_toStartOf="@id/lblFirstName"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/back3"
-        app:layout_constraintEnd_toEndOf="@id/edFirstName"
-        />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="0.5">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/no_one"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/no_one"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="73dp"
+            android:layout_height="30dp"
             android:text="Upload"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
-            app:layout_constraintRight_toRightOf="@id/imageView"
-            app:layout_constraintLeft_toLeftOf="@id/imageView"
-            android:layout_marginTop="20dp"
+            android:textColor="@color/app_black"
+            android:fontFamily="@font/fredoka_one"
+            android:background="@drawable/button_bg_yellow"
+            android:layout_marginVertical="10dp"
+            android:textSize="14sp"
             android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:background="@drawable/new_staff_view"
-            android:textColor="@color/black"
+
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnDelete"
+            android:id="@+id/btnRemove"
+            android:gravity="center"
+            android:layout_width="73dp"
+            android:layout_height="30dp"
+            android:text="Remove"
+            android:textColor="@color/white"
+            android:fontFamily="@font/fredoka_one"
+            android:background="@drawable/button_bg_red"
+            android:layout_marginVertical="10dp"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/formCardModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp">
+
+        <TextView
+            android:id="@+id/tvFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
-            app:layout_constraintTop_toBottomOf="@id/btnUpload"
-            app:layout_constraintRight_toRightOf="@id/imageView"
-            app:layout_constraintLeft_toLeftOf="@id/imageView"
-            android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:background="@drawable/btn_back_color"
-            android:textColor="@color/white"
+            android:text="First Name:"
+            android:textSize="15sp"
+            android:textFontWeight="700"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/fredoka_one"
+            />
+
+        <EditText
+            android:id="@+id/edFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search_bg"
+            android:paddingStart="10dp"
+            android:maxLines="1"
+            android:maxLength="15"
+            android:fontFamily="@font/fredoka_one"
+
+            />
+        <TextView
+            android:id="@+id/tvLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name:"
+            android:textSize="15sp"
+            android:textFontWeight="700"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/fredoka_one"/>
+        <EditText
+            android:id="@+id/edLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search_bg"
+            android:paddingStart="10dp"
+            android:maxLines="1"
+            android:maxLength="15"
+            android:fontFamily="@font/fredoka_one"
+
+            />
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:textFontWeight="700"
+            android:fontFamily="@font/fredoka_one"/>
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search_bg"
+            android:paddingStart="10dp"
+            android:maxLines="1"
+            android:maxLength="20"
+            android:fontFamily="@font/fredoka_one"
+            />
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone:"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:textFontWeight="700"
+            android:fontFamily="@font/fredoka_one"/>
+        <EditText
+            android:id="@+id/edPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search_bg"
+            android:paddingStart="10dp"
+
+            android:maxLines="1"
+            android:maxLength="11"
+            android:fontFamily="@font/fredoka_one"
             />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- TODO: Update blank fragment layout -->
 
