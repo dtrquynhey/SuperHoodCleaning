@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,7 +28,7 @@ public class TabBarActivity extends AppCompatActivity {
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
-//        floatingActionButton.setVisibility(View.INVISIBLE);
+        floatingActionButton.setVisibility(View.INVISIBLE);
 
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
@@ -48,7 +49,7 @@ public class TabBarActivity extends AppCompatActivity {
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, newCustomerFragment)
+                    .replace(R.id.fragment_container, modifyStaffFragment)
                     .commit();
         }
     }
