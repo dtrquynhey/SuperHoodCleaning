@@ -13,6 +13,8 @@ import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
+
 import controllers.customer.ManageCustomerFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
@@ -37,6 +39,7 @@ public class TabBarActivity extends AppCompatActivity {
 
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
 //        floatingActionButton.setVisibility(View.INVISIBLE);
+
 
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
@@ -109,5 +112,24 @@ public class TabBarActivity extends AppCompatActivity {
             });
 
         }
+    }
+
+//
+    public void replaceFragmentWith(Fragment fragment, Serializable data) {
+        // Create a new Bundle to hold the data
+        Bundle args = new Bundle();
+
+        // Put the data into the Bundle. Use a key that both sending and receiving fragments understand.
+        args.putSerializable("dataKey", data);
+
+        // Set the arguments for the fragment
+        fragment.setArguments(args);
+
+        // Perform the fragment transaction to replace the current fragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null) // Optional, if you want to add the transaction to the back stack
+                .commit();
+
     }
 }

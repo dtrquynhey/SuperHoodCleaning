@@ -12,17 +12,30 @@ import android.widget.Toast;
 import com.example.superhoodcleaning.R;
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
+
 import models.Address;
 import models.Customer;
 import services.FirebaseConnection;
 
 public class ModifyCustomerFragment extends Fragment {
+
+    public static ModifyCustomerFragment newInstance(){
+        return new ModifyCustomerFragment();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        btnUpdate();
-        btnDelete();
+//        btnUpdate();
+//        btnDelete();
+        Serializable data = getArguments().getSerializable("dataKey");
+        if (data instanceof Customer) {
+            Customer customer = (Customer) data;
+            Toast.makeText(getContext(), customer.getName(), Toast.LENGTH_SHORT).show();
+            // Use the customer object as needed
+        }
+
         return inflater.inflate(R.layout.fragment_modify_customer, container, false);
     }
 
