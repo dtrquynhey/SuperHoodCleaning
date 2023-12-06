@@ -1,24 +1,19 @@
 package controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import controllers.customer.ManageCustomerFragment;
 import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
-import controllers.staff.ManageStaffFragment;
 import controllers.staff.ModifyStaffFragment;
 import controllers.staff.NewStaffFragment;
-import services.IAddButton;
 
 public class TabBarActivity extends AppCompatActivity {
 
@@ -33,7 +28,7 @@ public class TabBarActivity extends AppCompatActivity {
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.fab);
-//        floatingActionButton.setVisibility(View.INVISIBLE);
+        floatingActionButton.setVisibility(View.INVISIBLE);
 
 
         // Check that the activity is using the layout version with the fragment_container FrameLayout
@@ -47,38 +42,15 @@ public class TabBarActivity extends AppCompatActivity {
             }
 
             // Create an instance of the fragment you want to start
-            ManageCustomerFragment manageCustomerFragment = new ManageCustomerFragment();
             NewCustomerFragment newCustomerFragment = new NewCustomerFragment();
             ModifyCustomerFragment modifyCustomerFragment = new ModifyCustomerFragment();
-            ManageStaffFragment manageStaffFragment = new ManageStaffFragment();
             NewStaffFragment newStaffFragment = new NewStaffFragment();
             ModifyStaffFragment modifyStaffFragment = new ModifyStaffFragment();
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, manageCustomerFragment)
+                    .replace(R.id.fragment_container, modifyStaffFragment)
                     .commit();
-
-
-            Log.d("MyAppTag", "Before Debug message");
-            floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-
-                    if (currentFragment instanceof IAddButton) {
-                        ((IAddButton) currentFragment).addButton();
-                    }else if(currentFragment instanceof ManageCustomerFragment){
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, newCustomerFragment)
-                                .commit();
-                    } else if(currentFragment instanceof ManageStaffFragment){
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, newStaffFragment)
-                                .commit();
-                    }
-                }
-            });
         }
     }
 }
