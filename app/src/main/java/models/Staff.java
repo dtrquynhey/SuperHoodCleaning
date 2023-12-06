@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Staff extends RecyclerView.Adapter<Staff.ViewHolder> {
+public class Staff {
     private String firstName;
     private String lastName;
     private String email;
@@ -73,7 +73,7 @@ public class Staff extends RecyclerView.Adapter<Staff.ViewHolder> {
     public void setPhoto(String photoUrl) {
         this.photoUrl = photoUrl;
     }
-
+/*
     @NonNull
     @Override
     public Staff.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -102,5 +102,5 @@ public class Staff extends RecyclerView.Adapter<Staff.ViewHolder> {
             imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView);
         }
-    }
+    }*/
 }

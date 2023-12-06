@@ -30,7 +30,7 @@ public class ManageStaffFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(requireContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         Staff staff = new Staff(staffList);
-        recyclerView.setAdapter(staff);
+        //recyclerView.setAdapter(staff);
         // Inflate the layout for this fragment
         return rootView;
     }

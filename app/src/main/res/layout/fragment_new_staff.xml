@@ -35,7 +35,8 @@ android:layout_height="wrap_content">
             android:id="@+id/imageViewPhoto"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/no_one"/>
+            android:src="@drawable/no_one"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUploadPhotoNewStaff"

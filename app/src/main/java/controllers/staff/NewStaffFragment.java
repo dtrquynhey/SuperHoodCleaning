@@ -32,8 +32,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
 import models.Staff;
@@ -96,6 +98,8 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
                     }
                 }
         );
+        storageReference = FirebaseStorage.getInstance().getReference();
+
     }
 
     private Bitmap convertPhotoResultToBitMap(ActivityResult result) {
@@ -119,13 +123,19 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
         try {
             Staff staff = new Staff(firstName, lastName, email, phone, photoUrl);
             DatabaseReference dbRef = FirebaseConnection.getDatabaseRef();
-            dbRef.child("staffs").push().setValue(staff)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(getContext(), "Staff added successfully!", Toast.LENGTH_SHORT).show();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(getContext(), "Failed to add staff!", Toast.LENGTH_SHORT).show();
-                                });
+            try {
+                dbRef.child("staffs").push().setValue(staff)
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(getContext(), "Staff added successfully!", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(getContext(), "Failed to add staff!", Toast.LENGTH_SHORT).show();
+                        });
+            } catch (Exception e) {
+                Throwable realException = e.getCause();
+                Log.e("FirebaseError", "Real cause: ", realException);
+            }
+
         } catch (Exception e) {
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -161,12 +171,10 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
             Toast.makeText(getContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (photoPath != null) {
             uploadChosenPhotoToStorage();
         } else {
-            // Handle the case when there is no photo selected
-            addStaff(firstName, lastName, email, phone, null);
+            Toast.makeText(getContext(), "Please upload a profile picture!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -185,7 +193,9 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
             String lastName = edLastNameNewStaff.getText().toString().trim();
             String email = edEmailNewStaff.getText().toString().trim();
             String phone = edPhoneNewStaff.getText().toString().trim();
+
             addStaff(firstName, lastName, email, phone, uploadedPhotoUrl);
+            clearWidgets();
         }
     }
 
@@ -206,6 +216,14 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
     public void onFailure(@NonNull Exception e) {
         Toast.makeText(getContext(), "Error occurred while uploading photo: " + e.getMessage(), Toast.LENGTH_LONG).show();
         progressDialog.dismiss();
+    }
+
+    private void clearWidgets() {
+        edFirstNameNewStaff.setText(null);
+        edLastNameNewStaff.setText(null);
+        edEmailNewStaff.setText(null);
+        edPhoneNewStaff.setText(null);
+        imageViewPhoto.setImageResource(R.drawable.no_one);
     }
 
 }
