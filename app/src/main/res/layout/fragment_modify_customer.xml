@@ -22,6 +22,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
             <TextView
+                android:id="@+id/nameModifyCustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name:"
@@ -30,12 +31,14 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/fredoka_one"/>
             <EditText
+                android:id="@+id/edNameModifyCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="2dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/search_bg"/>
             <TextView
+                android:id="@+id/managerModifyCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Manager"
@@ -44,6 +47,7 @@
                 android:textFontWeight="700"
                 android:fontFamily="@font/fredoka_one"/>
             <EditText
+                android:id="@+id/edManagerModifyCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="2dp"
@@ -54,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/streetModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Street"
@@ -63,6 +68,7 @@
                     android:layout_weight="0.5"
                     android:fontFamily="@font/fredoka_one"/>
                 <TextView
+                    android:id="@+id/stateModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="State"
@@ -78,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/edStreetModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -85,6 +92,7 @@
                     android:background="@drawable/search_bg"
                     android:paddingVertical="2dp" />
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edStateModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -102,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/cityModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="City"
@@ -111,6 +120,7 @@
                     android:layout_weight="0.5"
                     android:fontFamily="@font/fredoka_one"/>
                 <TextView
+                    android:id="@+id/zipModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Zip"
@@ -127,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/edCityModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -134,6 +145,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/search_bg"/>
                 <EditText
+                    android:id="@+id/edZipModifyCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,6 +156,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/phoneModifyCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone"
@@ -156,6 +169,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/edPhoneModifyCustomer"
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:paddingVertical="2dp"
@@ -163,6 +177,7 @@
                     android:layout_weight="0.5"
                     android:background="@drawable/search_bg"/>
                 <Button
+                    android:id="@+id/viewAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -183,6 +198,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:gravity="center">
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnUpdateNewCustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Update"
@@ -191,6 +207,7 @@
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/button_bg_yellow"/>
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDeleteNewCustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"
@@ -198,9 +215,6 @@
                 android:fontFamily="@font/fredoka_one"
                 android:layout_marginStart="40dp"
                 android:background="@drawable/button_bg_red"/>
-
-
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
