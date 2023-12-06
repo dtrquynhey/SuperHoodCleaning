@@ -1,9 +1,12 @@
 package controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,6 +16,7 @@ import controllers.customer.ModifyCustomerFragment;
 import controllers.customer.NewCustomerFragment;
 import controllers.staff.ModifyStaffFragment;
 import controllers.staff.NewStaffFragment;
+import services.IAddButton;
 
 public class TabBarActivity extends AppCompatActivity {
 
@@ -50,6 +54,19 @@ public class TabBarActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, newCustomerFragment)
                     .commit();
+
+
+            Log.d("MyAppTag", "Before Debug message");
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+                    if (currentFragment instanceof IAddButton) {
+                        ((IAddButton) currentFragment).addButton();
+                    }
+                }
+            });
         }
     }
 }

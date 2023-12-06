@@ -8,6 +8,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import models.Address;
 import models.Customer;
 import services.FirebaseConnection;
+import services.IAddButton;
 
-public class NewCustomerFragment extends Fragment {
+public class NewCustomerFragment extends Fragment implements IAddButton {
 
 
     @Override
@@ -65,5 +68,10 @@ public class NewCustomerFragment extends Fragment {
         String phone = "4385551010";
         Address address = new Address(street, city, state, zip);
         addCustomer(name, manager, address, phone);
+    }
+
+    @Override
+    public void addButton() {
+        Log.d("MyAppTag", "btn clicked");
     }
 }
