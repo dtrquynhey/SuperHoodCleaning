@@ -10,4 +10,14 @@
     <string name="new_staff_dummy">New Staff</string>
     <string name="modify_staff_dummy">Modify Staff</string>
     <string name="customer_management_dummy">Customer Management</string>
+
+    <!-- Array of states for the dropdown -->
+    <string-array name="usa_states_array">
+        <item>NJ</item> <!-- New Jersey -->
+        <item>NY</item> <!-- New York -->
+        <item>PA</item> <!-- Pennsylvania -->
+        <item>CT</item> <!-- Connecticut -->
+        <item>DE</item> <!-- Delaware -->
+        <!-- Add any other states you need -->
+    </string-array>
 </resources>
