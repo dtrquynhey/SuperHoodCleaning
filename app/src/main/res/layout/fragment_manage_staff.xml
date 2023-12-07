@@ -4,79 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="controllers.staff.ManageStaffFragment"
-    android:background="#1E1E1E">
+    tools:context="controllers.staff.ManageStaffFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerStaffManagement"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#141313"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/lyStaffView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Staff Management"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="40dp"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="#FBE056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <TextView
+                android:id="@+id/tvStaffTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Staff"
+                android:fontFamily="@font/fredoka_one"
+                android:textSize="15sp"
+                android:textColor="@color/app_yellow"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"/>
 
-            />
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            android:layout_marginTop="20dp"
-            android:iconifiedByDefault="false"
-            app:layout_constraintStart_toStartOf="@+id/tvTitle"
-            android:queryHint="search"
-            android:background="@drawable/back1"
-            />
-
-        <TextView
-            android:id="@+id/tvMyStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="My Staff"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
-            app:layout_constraintStart_toStartOf="@id/tvTitle"
-            android:layout_marginTop="30dp"
-            android:textSize="20sp"
-            android:textColor="#FBE056"
-            android:textStyle="bold"
-            />
-        <View
-            android:id="@+id/vLine"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="#FBE056"
-            app:layout_constraintTop_toBottomOf="@id/tvMyStaff"
-            app:layout_constraintStart_toStartOf="@id/tvTitle"
-            app:layout_constraintEnd_toEndOf="@id/searchView"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/vLine"
-            app:layout_constraintStart_toStartOf="@id/tvTitle"
-            app:layout_constraintEnd_toEndOf="@id/searchView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/divider"/>
+            <GridView
+                android:id="@+id/gvStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="10dp"
+                android:numColumns="2"
+                android:columnWidth="150dp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
 
 
 
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
