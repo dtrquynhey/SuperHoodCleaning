@@ -31,7 +31,6 @@ public class TabBarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvTitle = findViewById(R.id.tvTitle);
         setContentView(R.layout.activity_tab_bar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
