@@ -26,8 +26,8 @@ public class ManageStaffFragment extends Fragment {
     private List<Staff> staffList;
 
     String names[] = {"Sizar Haj Hasan", "Truc Dang Quynh", "Ajinkya Bhintade", "Haitham Elkalmoushy"};
-    String imgURL[] = {"https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2F00995e80-a49e-4a4d-9dfc-bd0f1de243f6?alt=media&token=1c11968f-3198-4a28-b3ca-ba1fcdf2fe5a",
-    "https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2F00995e80-a49e-4a4d-9dfc-bd0f1de243f6?alt=media&token=1c11968f-3198-4a28-b3ca-ba1fcdf2fe5a",
+    String imgURL[] = {"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1440589473619-3cde28941638?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2Fhaitham.png?alt=media&token=b634fbac-2269-47a9-8b9a-60becbf4feac",
     "https://firebasestorage.googleapis.com/v0/b/superhoodcleaningfirebase.appspot.com/o/images%2Fimage_2.png?alt=media&token=70e8f9c3-586c-4e54-bce0-ea25a2913ff2"};
     GridView gridView;

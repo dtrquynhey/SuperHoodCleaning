@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.superhoodcleaning.R;
@@ -54,7 +55,11 @@ public class GridAdapter extends BaseAdapter {
             TextView textView = view.findViewById(R.id.tvStaffName);
 
             int radius = 50;
-            Glide.with(context).load(imgURL[position]).apply(RequestOptions.bitmapTransform(new RoundedCorners(radius))).into(imageView);
+//            Glide.with(context).load(imgURL[position]).apply(RequestOptions.bitmapTransform(new RoundedCorners(radius))).into(imageView);
+            Glide.with(context)
+                    .load(imgURL[position])
+                    .transform(new CircleCrop()) // This will make the image circular
+                    .into(imageView);
             textView.setText(staffName[position]);
         }
 
