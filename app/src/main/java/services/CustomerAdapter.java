@@ -47,7 +47,7 @@ public class CustomerAdapter extends ArrayAdapter<Customer> {
         customerName.setText(item.getName());
         managerName.setText(item.getManager());
         address1.setText(item.getAddress().getStreet());
-        address2.setText(String.format("%s,%s %s", item.getAddress().getCity(), item.getAddress().getState(), item.getAddress().getZip()));
+        address2.setText(String.format("%s, %s %s", item.getAddress().getCity(), item.getAddress().getState(), item.getAddress().getZip()));
 
 
 
