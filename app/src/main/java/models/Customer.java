@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Customer implements Serializable {
     private String customerId;
+    private String name;
+    private String manager;
+    private Address address;
+    private String phone;
 
     public String getCustomerId() {
         return customerId;
