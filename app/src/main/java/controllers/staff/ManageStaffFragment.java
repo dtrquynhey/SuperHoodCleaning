@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.superhoodcleaning.R;
@@ -17,8 +18,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import controllers.TabBarActivity;
 import models.Staff;
 import services.FirebaseConnection;
 import services.StaffAdapter;
@@ -32,10 +35,7 @@ public class ManageStaffFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        staffs = new ArrayList<Staff>();
-        staffAdapter = new StaffAdapter(getActivity(), staffs);
-        databaseReference = FirebaseConnection.getDatabaseRef();
-        fetchStaffs();
+
         return inflater.inflate(R.layout.fragment_manage_staff,container,false);
     }
 
@@ -43,8 +43,26 @@ public class ManageStaffFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        staffs = new ArrayList<Staff>();
+        staffAdapter = new StaffAdapter(getActivity(), staffs);
+        databaseReference = FirebaseConnection.getDatabaseRef();
+        fetchStaffs();
         GridView gridView = view.findViewById(R.id.gvStaff);
         gridView.setAdapter(staffAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openFragment(staffs.get(position));
+            }
+        });
+    }
+
+    private void openFragment(Staff staff) {
+        if (getActivity() instanceof TabBarActivity) {
+            Serializable itemStaff = staff;
+            ((TabBarActivity) getActivity()).replaceFragmentWith(new ModifyStaffFragment(), itemStaff);
+        }
     }
 
     private void fetchStaffs() {
@@ -53,6 +71,7 @@ public class ManageStaffFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Staff staff = snapshot.getValue(Staff.class);
+                    staff.setStaffId(snapshot.getKey());
                     staffs.add(staff);
                 }
                 staffAdapter.notifyDataSetChanged();
@@ -64,6 +83,4 @@ public class ManageStaffFragment extends Fragment {
             }
         });
     }
-
-
 }

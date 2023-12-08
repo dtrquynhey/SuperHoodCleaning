@@ -12,9 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.superhoodcleaning.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Staff {
+public class Staff implements Serializable {
+
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
+    private String staffId;
     private String firstName;
     private String lastName;
     private String email;
@@ -68,7 +79,7 @@ public class Staff {
         return photoUrl;
     }
 
-    public void setPhoto(String photoUrl) {
+    public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
 }

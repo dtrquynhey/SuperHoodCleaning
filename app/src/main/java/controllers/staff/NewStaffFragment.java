@@ -168,7 +168,6 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
 
     @Override
     public void addButton() {
-        Log.d("MyAppTag", "btn staff clicked");
         String firstName = edFirstNameNewStaff.getText().toString().trim();
         String lastName = edLastNameNewStaff.getText().toString().trim();
         String email = edEmailNewStaff.getText().toString().trim();
