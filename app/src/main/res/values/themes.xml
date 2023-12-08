@@ -17,6 +17,27 @@
     <style name="FabShapeStyle1" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerSize">50%</item>
     </style>
+    <style name="Heading">
+        <item name="fontFamily">@font/fredoka_one</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/app_red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Sub_Heading">
+        <item name="fontFamily">@font/fredoka_one</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/app_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="paragraph">
+        <item name="fontFamily">@font/fredoka_one</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/app_black</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="colorAccent">@color/app_yellow</item>
+    </style>
 <!--    <style name="Base.Widget.Material3.BottomNavigationView" parent="Widget.Material3.BottomAppBar">-->
 <!--        <item name="android:background">@color/app_red</item>-->
 <!--    </style>-->

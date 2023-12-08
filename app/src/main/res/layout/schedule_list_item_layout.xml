@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="20dp"
+        android:background="@drawable/information_capsule">
+        <TextView
+            android:id="@+id/txtScheduleCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customer Name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/app_red"
+            android:fontFamily="@font/fredoka_one"/>
+        <TextView
+            android:id="@+id/txtScheduleManagerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manager Name"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/fredoka_one"/>
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Address Line"
+            android:fontFamily="@font/fredoka_one"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="controllers.customer.ToScheduleCustomerFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/llScheduleContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/to_schedule_dummy" />
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvScheduleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To Schedule"
+            android:fontFamily="@font/fredoka_one"
+            android:textSize="15sp"
+            android:textColor="@color/app_yellow"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <View
+            android:id="@+id/vScheduleDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/divider"/>
+        <ListView
+            android:id="@+id/lvCustomerSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
 
 </FrameLayout>
