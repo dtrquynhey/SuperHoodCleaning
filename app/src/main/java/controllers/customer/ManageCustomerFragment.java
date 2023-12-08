@@ -89,7 +89,6 @@ public class ManageCustomerFragment extends Fragment {
                     items.add(customer);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

@@ -25,7 +25,6 @@
                 android:fontFamily="@font/fredoka_one"
                 android:textSize="15sp"
                 android:textColor="@color/app_yellow"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"/>
 
             <View

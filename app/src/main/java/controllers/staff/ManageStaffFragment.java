@@ -12,23 +12,30 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.example.superhoodcleaning.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 import models.Staff;
 import services.FirebaseConnection;
+import services.StaffAdapter;
 
 public class ManageStaffFragment extends Fragment {
 
-    private ArrayList<Staff> staffs;
-    private DatabaseReference databaseReference = FirebaseConnection.getDatabaseRef();
-    GridView gridView;
+    ArrayList<Staff> staffs;
+    StaffAdapter staffAdapter;
+    private DatabaseReference databaseReference;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        staffs = new ArrayList<Staff>();
+        staffAdapter = new StaffAdapter(getActivity(), staffs);
+        databaseReference = FirebaseConnection.getDatabaseRef();
+        fetchStaffs();
         return inflater.inflate(R.layout.fragment_manage_staff,container,false);
     }
 
@@ -36,7 +43,27 @@ public class ManageStaffFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        gridView = view.findViewById(R.id.gvStaff);
-        //gridView.setAdapter(new GridAdapter(names, imgURL,requireContext()));
+        GridView gridView = view.findViewById(R.id.gvStaff);
+        gridView.setAdapter(staffAdapter);
     }
+
+    private void fetchStaffs() {
+        databaseReference.child("staffs").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Staff staff = snapshot.getValue(Staff.class);
+                    staffs.add(staff);
+                }
+                staffAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
 }
