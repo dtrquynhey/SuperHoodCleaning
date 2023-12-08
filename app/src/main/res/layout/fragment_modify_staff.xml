@@ -83,7 +83,7 @@
                     android:id="@+id/tvFirstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="First Name:"
+                    android:text="First Name"
                     android:textSize="15sp"
                     android:textFontWeight="700"
                     android:layout_marginTop="5dp"
@@ -98,6 +98,8 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/search_bg"
                     android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+
                     android:maxLines="1"
                     android:maxLength="15"
                     android:fontFamily="@font/fredoka_medium"
@@ -107,7 +109,7 @@
                     android:id="@+id/tvLastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Last Name:"
+                    android:text="Last Name"
                     android:textSize="15sp"
                     android:textFontWeight="700"
                     android:layout_marginTop="5dp"
@@ -122,6 +124,7 @@
                     android:paddingStart="10dp"
                     android:maxLines="1"
                     android:maxLength="15"
+                    android:paddingEnd="10dp"
                     android:fontFamily="@font/fredoka_medium"
 
                     />
@@ -129,7 +132,7 @@
                     android:id="@+id/tvEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email:"
+                    android:text="Email"
                     android:textSize="15sp"
                     android:layout_marginTop="5dp"
                     android:textFontWeight="700"
@@ -144,13 +147,14 @@
                     android:paddingStart="10dp"
                     android:maxLines="1"
                     android:maxLength="20"
+                    android:paddingEnd="10dp"
                     android:fontFamily="@font/fredoka_medium"
                     />
                 <TextView
                     android:id="@+id/tvPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone:"
+                    android:text="Phone"
                     android:textSize="15sp"
                     android:layout_marginTop="5dp"
                     android:textFontWeight="700"
@@ -166,6 +170,7 @@
 
                     android:maxLines="1"
                     android:maxLength="11"
+                    android:paddingEnd="10dp"
                     android:fontFamily="@font/fredoka_medium"
                     />
 
