@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,11 +26,12 @@ import controllers.staff.NewStaffFragment;
 import services.IAddButton;
 
 public class TabBarActivity extends AppCompatActivity {
-
+    TextView tvTitle;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tvTitle = findViewById(R.id.tvTitle);
         setContentView(R.layout.activity_tab_bar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -73,6 +75,7 @@ public class TabBarActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     floatingActionButton.setVisibility(View.VISIBLE);
                     if(item.getItemId() == R.id.iCustomers){
+
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, manageCustomerFragment)
                                 .commit();

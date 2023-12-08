@@ -88,6 +88,7 @@ public class ManageCustomerFragment extends Fragment {
                     Customer customer = snapshot.getValue(Customer.class);
                     items.add(customer);
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
