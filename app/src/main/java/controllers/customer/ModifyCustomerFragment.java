@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.superhoodcleaning.R;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 
 import java.io.Serializable;
@@ -47,7 +49,15 @@ public class ModifyCustomerFragment extends Fragment {
         initialize(view);
         return view;
     }
+    public void onResume() {
+        super.onResume();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
 
+        fab.hide();
+        bottomAppBar.performShow(); // Request layout pass
+
+    }
     private void initialize(View view) {
         edNameModifyCustomer = view.findViewById(R.id.edNameModifyCustomer);
         edManagerModifyCustomer = view.findViewById(R.id.edManagerModifyCustomer);
