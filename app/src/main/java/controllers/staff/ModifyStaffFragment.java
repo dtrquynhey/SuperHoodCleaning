@@ -34,6 +34,8 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.example.superhoodcleaning.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -73,6 +75,15 @@ public class ModifyStaffFragment extends Fragment implements OnSuccessListener, 
             initialize(view);
         }
         return view;
+    }
+    public void onResume() {
+        super.onResume();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
+
+        fab.hide();
+        bottomAppBar.performShow(); // Request layout pass
+
     }
 
     private void initialize(View view) {

@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.superhoodcleaning.R;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +39,17 @@ public class ManageStaffFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_manage_staff,container,false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
+
+        fab.show();
+        bottomAppBar.performShow(); // Request layout pass
+
     }
 
     @Override
