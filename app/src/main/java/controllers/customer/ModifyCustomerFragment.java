@@ -47,17 +47,32 @@ public class ModifyCustomerFragment extends Fragment {
             customerToUpdate = customer ;
         }
         initialize(view);
+//
+//        View searchBar = ((TabBarActivity)getActivity()).findViewById(R.id.search_bar);
+//        searchBar.setVisibility(View.INVISIBLE);
         return view;
     }
     public void onResume() {
         super.onResume();
         FloatingActionButton fab = getActivity().findViewById(R.id.fab);
         BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
-
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.GONE);
+        }
         fab.hide();
         bottomAppBar.performShow(); // Request layout pass
-
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void initialize(View view) {
         edNameModifyCustomer = view.findViewById(R.id.edNameModifyCustomer);
         edManagerModifyCustomer = view.findViewById(R.id.edManagerModifyCustomer);

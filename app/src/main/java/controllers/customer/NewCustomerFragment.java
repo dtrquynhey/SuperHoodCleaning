@@ -39,6 +39,7 @@ public class NewCustomerFragment extends Fragment implements IAddButton {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ((TabBarActivity)getActivity()).tvTitle.setText("New Customer");
+
         return inflater.inflate(R.layout.fragment_new_customer, container, false);
     }
 
@@ -47,6 +48,25 @@ public class NewCustomerFragment extends Fragment implements IAddButton {
         super.onViewCreated(view, savedInstanceState);
         initialize(view);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void initialize(View view) {
         edNewCustomer = view.findViewById(R.id.edNewCustomer);
         edManagerNewCustomer = view.findViewById(R.id.edManagerNewCustomer);

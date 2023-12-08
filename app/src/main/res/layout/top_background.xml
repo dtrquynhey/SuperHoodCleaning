@@ -26,6 +26,7 @@
                 android:textSize="26sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -50,6 +51,8 @@
                 android:inputType="textFilter"
                 android:paddingVertical="15dp"
                 android:backgroundTint="@android:color/transparent"
+                android:fontFamily="@font/fredoka_medium"
+                android:textSize="15dp"
                 />
         </LinearLayout>
     </RelativeLayout>

@@ -31,6 +31,24 @@ public class ModifyAppointmentFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_modify_appointment, container, false);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void btnUpdate() {
         String appointmentId = "-NjTsA7dEjALxq2GBmpe";
         String customerId = "-NjPNMm_cx-cMErFFPU2";

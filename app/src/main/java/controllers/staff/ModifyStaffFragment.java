@@ -82,11 +82,22 @@ public class ModifyStaffFragment extends Fragment implements OnSuccessListener, 
         FloatingActionButton fab = getActivity().findViewById(R.id.fab);
         BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
 
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.GONE);
+        }
         fab.hide();
         bottomAppBar.performShow(); // Request layout pass
 
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.VISIBLE);
+        }
+    }
     private void initialize(View view) {
         edFirstNameModifyStaff = view.findViewById(R.id.edFirstNameModifyStaff);
         edLastNameModifyStaff = view.findViewById(R.id.edLastNameModifyStaff);

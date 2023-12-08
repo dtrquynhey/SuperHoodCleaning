@@ -1,5 +1,6 @@
 package controllers.customer;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -88,6 +89,7 @@ public class ManageCustomerFragment extends Fragment {
         if (getActivity() instanceof TabBarActivity) {
             Serializable itemCustomer = (Serializable)customer;
             ((TabBarActivity) getActivity()).replaceFragmentWith(new ModifyCustomerFragment(), itemCustomer);
+
         }
     }
 

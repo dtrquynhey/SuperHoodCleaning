@@ -73,6 +73,23 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
         initialize(view);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        View searchBar = getActivity().findViewById(R.id.search_bar);
+        if (searchBar != null) {
+            searchBar.setVisibility(View.VISIBLE);
+        }
+    }
     private void initialize(View view) {
         edFirstNameNewStaff = view.findViewById(R.id.edFirstNameNewStaff);
         edLastNameNewStaff = view.findViewById(R.id.edLastNameNewStaff);
