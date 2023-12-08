@@ -9,10 +9,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.superhoodcleaning.R;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +35,17 @@ public class ManageCustomerFragment extends Fragment {
     List<Customer> items;
     CustomerAdapter adapter;
     DatabaseReference dbRef;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
+
+        fab.show();
+        bottomAppBar.performShow(); // Request layout pass
+
+    }
     public static ManageCustomerFragment newInstance(){
         return new ManageCustomerFragment();
     }
@@ -86,6 +100,7 @@ public class ManageCustomerFragment extends Fragment {
                     Customer customer = snapshot.getValue(Customer.class);
                     items.add(customer);
                 }
+                adapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

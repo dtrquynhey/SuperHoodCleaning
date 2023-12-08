@@ -9,10 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.superhoodcleaning.R;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class ToScheduleCustomerFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        BottomAppBar bottomAppBar = getActivity().findViewById(R.id.bottomAppBar);
 
+        fab.hide();
+        bottomAppBar.performShow(); // Request layout pass
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
