@@ -21,11 +21,12 @@
                 android:id="@+id/tvStaffTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Staff"
+                android:text="My Staffs"
                 android:fontFamily="@font/fredoka_one"
                 android:textSize="15sp"
                 android:textColor="@color/app_yellow"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"/>
 
             <View
                 android:layout_width="match_parent"
@@ -37,12 +38,13 @@
                 android:id="@+id/gvStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="13dp"
                 android:layout_marginHorizontal="10dp"
                 android:numColumns="2"
                 android:columnWidth="150dp"
                 android:layout_gravity="center"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:verticalSpacing="10dp"/>
 
 
 
