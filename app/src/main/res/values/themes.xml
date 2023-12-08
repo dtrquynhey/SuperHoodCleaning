@@ -34,6 +34,10 @@
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/app_black</item>
     </style>
+
+    <style name="DialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="colorAccent">@color/app_yellow</item>
+    </style>
 <!--    <style name="Base.Widget.Material3.BottomNavigationView" parent="Widget.Material3.BottomAppBar">-->
 <!--        <item name="android:background">@color/app_red</item>-->
 <!--    </style>-->

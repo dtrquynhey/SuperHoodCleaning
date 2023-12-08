@@ -3,18 +3,32 @@ package controllers.appointment;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.ListView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+
 import com.example.superhoodcleaning.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,12 +37,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import controllers.TabBarActivity;
+import controllers.staff.ModifyStaffFragment;
 import models.Appointment;
 import models.Staff;
 import services.FirebaseConnection;
+import services.StaffAdapter;
+import services.StaffListAdapter;
 
 public class NewAppointmentFragment extends Fragment {
 
+    ArrayList<Staff> staffs;
+    StaffListAdapter staffListAdapter;
+    private DatabaseReference databaseReference;
     //@RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +57,83 @@ public class NewAppointmentFragment extends Fragment {
         //btnAdd();
         return inflater.inflate(R.layout.fragment_new_appointment, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button datePicker = view.findViewById(R.id.btnDatePicker);
+        Button startTime = view.findViewById(R.id.btnStartTime);
+        Button endTime = view.findViewById(R.id.btnEndTime);
+
+        datePicker.setOnClickListener(new setOnClickListener());
+        startTime.setOnClickListener(new setOnClickListener());
+        endTime.setOnClickListener(new setOnClickListener());
+
+        staffs = new ArrayList<Staff>();
+        staffListAdapter = new StaffListAdapter(getActivity(), staffs);
+        databaseReference = FirebaseConnection.getDatabaseRef();
+        fetchStaffs();
+
+        ListView listView = view.findViewById(R.id.lvStaffList);
+        listView.setAdapter(staffListAdapter);
+
+    }
+
+    private void openDatePicker(final Button button) {
+        // Existing code...
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), R.style.DialogTheme , new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // Setting the button text to the selected date
+                button.setText(String.format("%d.%02d.%02d", year, month + 1, day)); // month + 1 because month index starts at 0
+            }
+        }, 2023, 01, 20);
+        datePickerDialog.show();
+    }
+
+    private void openTimePicker(final Button button) {
+        // Existing code...
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), R.style.DialogTheme, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                // Setting the button text to the selected time
+                button.setText(String.format("%02d:%02d", hour, minute));
+            }
+        }, 15, 30, false);
+        timePickerDialog.show();
+    }
+
+//    private void openDatePicker(){
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.DialogTheme , new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//
+//                //Showing the picked value in the textView
+//                datePicker.setText(String.valueOf(year)+ "."+String.valueOf(month)+ "."+String.valueOf(day));
+//
+//            }
+//        }, 2023, 01, 20);
+//
+//        datePickerDialog.show();
+//    }
+
+
+//    private void openTimePicker(){
+//
+//        TimePickerDialog timePickerDialog = new TimePickerDialog(this, R.style.DialogTheme, new TimePickerDialog.OnTimeSetListener() {
+//            @Override
+//            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+//
+//
+//                //Showing the picked value in the textView
+//                textView.setText(String.valueOf(hour)+ ":"+String.valueOf(minute));
+//
+//            }
+//        }, 15, 30, false);
+//
+//        timePickerDialog.show();
+//    }
 
     private void btnAdd() {
         try {
@@ -88,6 +186,36 @@ public class NewAppointmentFragment extends Fragment {
                     });
         } catch (Exception e) {
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void fetchStaffs() {
+        databaseReference.child("staffs").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Staff staff = snapshot.getValue(Staff.class);
+                    staff.setStaffId(snapshot.getKey());
+                    staffs.add(staff);
+                }
+                staffListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private class setOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            int id = v.getId();
+            if (id == R.id.btnDatePicker) {
+                openDatePicker((Button) v);
+            } else if (id == R.id.btnStartTime || id == R.id.btnEndTime) {
+                openTimePicker((Button) v);
+            }
         }
     }
 }
