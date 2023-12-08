@@ -42,7 +42,6 @@ public class ModifyCustomerFragment extends Fragment {
         Serializable data = getArguments().getSerializable("dataKey");
         if (data instanceof Customer) {
             Customer customer = (Customer) data;
-            Toast.makeText(getContext(), customer.getCustomerId(), Toast.LENGTH_SHORT).show();
             customerToUpdate = customer ;
         }
         initialize(view);
