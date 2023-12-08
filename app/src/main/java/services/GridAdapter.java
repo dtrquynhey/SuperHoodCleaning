@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.superhoodcleaning.R;
 
 public class GridAdapter extends BaseAdapter {
@@ -51,7 +53,8 @@ public class GridAdapter extends BaseAdapter {
             ImageView imageView = view.findViewById(R.id.ivAvatar);
             TextView textView = view.findViewById(R.id.tvStaffName);
 
-            Glide.with(context).load(imgURL[position]).into(imageView);
+            int radius = 50;
+            Glide.with(context).load(imgURL[position]).apply(RequestOptions.bitmapTransform(new RoundedCorners(radius))).into(imageView);
             textView.setText(staffName[position]);
         }
 
