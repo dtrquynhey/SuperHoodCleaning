@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.superhoodcleaning.R;
@@ -19,24 +21,53 @@ import models.Customer;
 import services.FirebaseConnection;
 
 public class ModifyCustomerFragment extends Fragment {
+    private EditText edNameModifyCustomer, edManagerModifyCustomer, edStreetModifyCustomer,
+                    edCityModifyCustomer, edZipModifyCustomer, edPhoneModifyCustomer ;
+    private Button viewAppointment, btnUpdate, btnDelete;
 
+    Customer customerToUpdate;
     public static ModifyCustomerFragment newInstance(){
         return new ModifyCustomerFragment();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        btnUpdate();
-//        btnDelete();
+        View view = inflater.inflate(R.layout.fragment_modify_customer, container, false);
+
         Serializable data = getArguments().getSerializable("dataKey");
         if (data instanceof Customer) {
             Customer customer = (Customer) data;
-            Toast.makeText(getContext(), customer.getName(), Toast.LENGTH_SHORT).show();
-            // Use the customer object as needed
+            Toast.makeText(getContext(), customer.getCustomerId(), Toast.LENGTH_SHORT).show();
+            customerToUpdate = customer ;
         }
+        initialize(view);
+        return view;
+    }
 
-        return inflater.inflate(R.layout.fragment_modify_customer, container, false);
+    private void initialize(View view) {
+        edNameModifyCustomer = view.findViewById(R.id.edNameModifyCustomer);
+        edManagerModifyCustomer = view.findViewById(R.id.edManagerModifyCustomer);
+        edStreetModifyCustomer = view.findViewById(R.id.edStreetModifyCustomer);
+        edCityModifyCustomer = view.findViewById(R.id.edCityModifyCustomer);
+        edZipModifyCustomer = view.findViewById(R.id.edZipModifyCustomer);
+        edPhoneModifyCustomer = view.findViewById(R.id.edPhoneModifyCustomer);
+        viewAppointment = view.findViewById(R.id.viewAppointment);
+        btnUpdate = view.findViewById(R.id.btnUpdate);
+        btnDelete = view.findViewById(R.id.btnDelete);
+
+        Toast.makeText(getContext(), "The customer name is " + customerToUpdate.getName(), Toast.LENGTH_SHORT).show();
+        //Set customer info
+        edNameModifyCustomer.setText(customerToUpdate.getName());
+        edManagerModifyCustomer.setText(customerToUpdate.getManager());
+        edPhoneModifyCustomer.setText(customerToUpdate.getPhone());
+
+        //Set address info
+        Address address = customerToUpdate.getAddress();
+        edStreetModifyCustomer.setText(address.getStreet());
+        edCityModifyCustomer.setText(address.getCity());
+        edZipModifyCustomer.setText(address.getZip());
+
+
     }
 
     private void btnUpdate() {

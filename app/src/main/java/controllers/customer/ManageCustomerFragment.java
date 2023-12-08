@@ -98,6 +98,7 @@ public class ManageCustomerFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Customer customer = snapshot.getValue(Customer.class);
+                    customer.setCustomerId(snapshot.getKey());
                     items.add(customer);
                 }
                 adapter.notifyDataSetChanged();

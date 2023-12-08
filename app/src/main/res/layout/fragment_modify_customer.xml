@@ -38,8 +38,10 @@
                 android:paddingVertical="2dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/search_bg"
-                android:fontFamily="@font/fredoka_one"
+                android:fontFamily="@font/fredoka_medium"
                 android:paddingStart="10dp"
+                android:text="Chipotle"
+
 
                 />
             <TextView
@@ -58,7 +60,7 @@
                 android:paddingVertical="2dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/search_bg"
-                android:fontFamily="@font/fredoka_one"
+                android:fontFamily="@font/fredoka_medium"
                 android:paddingStart="10dp"
 
                 />
@@ -100,7 +102,7 @@
                     android:layout_weight="0.5"
                     android:background="@drawable/search_bg"
                     android:paddingVertical="2dp"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     android:paddingStart="10dp"
 
                     />
@@ -112,13 +114,16 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/search_bg"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     >
-                    <AutoCompleteTextView
+                    <Spinner
+                        android:id="@+id/spinnerStateNewCustomer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:fontFamily="@font/fredoka_one"
+                        android:entries="@array/usa_states_array"
+                        android:fontFamily="@font/fredoka_medium"
+
+
                         />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -161,7 +166,7 @@
                     android:paddingVertical="2dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/search_bg"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     android:paddingStart="10dp"
 
 
@@ -175,7 +180,7 @@
                     android:paddingVertical="2dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/search_bg"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     android:paddingStart="10dp"
 
                     />
@@ -202,7 +207,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="0.5"
                     android:background="@drawable/search_bg"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     android:paddingStart="10dp"
 
                     />

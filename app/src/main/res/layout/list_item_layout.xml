@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Customer Name"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/app_red"
             android:fontFamily="@font/fredoka_one"/>
         <LinearLayout
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Manager Name"
                 android:textStyle="bold"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:layout_weight="0.5"
                 android:fontFamily="@font/fredoka_one"/>
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No Appointment"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:layout_weight="1"
                 android:fontFamily="@font/fredoka_one"/>
         </LinearLayout>
@@ -50,14 +50,14 @@
             android:id="@+id/txtAddress1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="8sp"
+            android:textSize="12sp"
             android:text="Address Line 1"
             android:fontFamily="@font/fredoka_one"/>
         <TextView
             android:id="@+id/txtAddress2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="8sp"
+            android:textSize="12sp"
             android:text="Address Line 2"
             android:fontFamily="@font/fredoka_one"/>
     </LinearLayout>
