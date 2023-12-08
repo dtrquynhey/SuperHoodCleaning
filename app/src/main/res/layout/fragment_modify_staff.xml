@@ -32,7 +32,7 @@
                 android:layout_weight="0.5">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imPhotoModifyStaff"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/no_one"/>
@@ -91,7 +91,7 @@
                     />
 
                 <EditText
-                    android:id="@+id/edFirstName"
+                    android:id="@+id/edFirstNameModifyStaff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="2dp"
@@ -100,7 +100,7 @@
                     android:paddingStart="10dp"
                     android:maxLines="1"
                     android:maxLength="15"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
 
                     />
                 <TextView
@@ -113,7 +113,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/fredoka_one"/>
                 <EditText
-                    android:id="@+id/edLastName"
+                    android:id="@+id/edLastNameModifyStaff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="2dp"
@@ -122,7 +122,7 @@
                     android:paddingStart="10dp"
                     android:maxLines="1"
                     android:maxLength="15"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
 
                     />
                 <TextView
@@ -135,7 +135,7 @@
                     android:textFontWeight="700"
                     android:fontFamily="@font/fredoka_one"/>
                 <EditText
-                    android:id="@+id/edEmail"
+                    android:id="@+id/edEmailModifyStaff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="2dp"
@@ -144,7 +144,7 @@
                     android:paddingStart="10dp"
                     android:maxLines="1"
                     android:maxLength="20"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     />
                 <TextView
                     android:id="@+id/tvPhone"
@@ -156,7 +156,7 @@
                     android:textFontWeight="700"
                     android:fontFamily="@font/fredoka_one"/>
                 <EditText
-                    android:id="@+id/edPhone"
+                    android:id="@+id/edPhoneModifyStaff"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="2dp"
@@ -166,7 +166,7 @@
 
                     android:maxLines="1"
                     android:maxLength="11"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/fredoka_medium"
                     />
 
 

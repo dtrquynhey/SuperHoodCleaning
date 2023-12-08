@@ -12,18 +12,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.superhoodcleaning.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Staff {
+public class Staff implements Serializable {
+
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
+    private String staffId;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String photoUrl;
-    private List<Staff> staffList;
 
-    public Staff(List<Staff> staffList) {
-        this.staffList = staffList;
+    public Staff() {
     }
 
     public Staff(String firstName, String lastName, String email, String phone, String photoUrl) {
@@ -70,37 +79,7 @@ public class Staff {
         return photoUrl;
     }
 
-    public void setPhoto(String photoUrl) {
+    public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
-/*
-    @NonNull
-    @Override
-    public Staff.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull Staff.ViewHolder holder, int position) {
-        Staff staff = staffList.get(position);
-        Picasso.get().load(staff.getPhotoUrl()).into(holder.imageView);
-        holder.textView.setText(staff.getFirstName()+staff.getLastName());
-    }
-
-    @Override
-    public int getItemCount() {
-        return staffList.size();
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView textView;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
-        }
-    }*/
 }

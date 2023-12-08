@@ -7,7 +7,8 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+    android:layout_gravity="center">
 
 <LinearLayout
     android:id="@+id/formStaffModify"
@@ -20,7 +21,7 @@ android:layout_height="wrap_content">
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintTop_toBottomOf="parent"
-    android:gravity="center">
+    >
 
     <LinearLayout
         android:id="@+id/staffImageForm"
@@ -101,7 +102,7 @@ android:layout_height="wrap_content">
             android:paddingStart="10dp"
             android:maxLines="1"
             android:maxLength="15"
-            android:fontFamily="@font/fredoka_one"
+            android:fontFamily="@font/fredoka_medium"
 
             />
         <TextView
@@ -123,7 +124,7 @@ android:layout_height="wrap_content">
             android:paddingStart="10dp"
             android:maxLines="1"
             android:maxLength="15"
-            android:fontFamily="@font/fredoka_one"
+            android:fontFamily="@font/fredoka_medium"
 
             />
         <TextView
@@ -145,7 +146,7 @@ android:layout_height="wrap_content">
             android:paddingStart="10dp"
             android:maxLines="1"
             android:maxLength="20"
-            android:fontFamily="@font/fredoka_one"
+            android:fontFamily="@font/fredoka_medium"
             />
         <TextView
             android:id="@+id/tvPhone"
@@ -166,7 +167,7 @@ android:layout_height="wrap_content">
             android:paddingStart="10dp"
             android:maxLines="1"
             android:maxLength="11"
-            android:fontFamily="@font/fredoka_one"
+            android:fontFamily="@font/fredoka_medium"
             />
     </LinearLayout>
 </LinearLayout>

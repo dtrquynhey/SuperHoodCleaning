@@ -5,9 +5,8 @@
     tools:context="controllers.customer.ManageCustomerFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/lvCustomer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/customer_management_dummy" />
-
+        android:layout_height="match_parent"/>
 </FrameLayout>
