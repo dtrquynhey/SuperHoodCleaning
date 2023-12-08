@@ -79,8 +79,8 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
         super.onViewCreated(view, savedInstanceState);
         initialize(view);
         initDatePicker();
-        dateButton = view.findViewById(R.id.btnDatePicker);
-        dateButton.setText(getTodaysDate());
+//        dateButton = view.findViewById(R.id.btnDatePicker);
+//        dateButton.setText(getTodaysDate());
     }
 
     @Override

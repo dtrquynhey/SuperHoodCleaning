@@ -118,7 +118,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/search_bg"
-                    android:paddingStart="15dp"
                     android:fontFamily="@font/fredoka_medium"
                     >
                     <Spinner
@@ -127,7 +126,6 @@
                         android:layout_height="wrap_content"
                         android:entries="@array/usa_states_array"
                         android:fontFamily="@font/fredoka_medium"
-
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
