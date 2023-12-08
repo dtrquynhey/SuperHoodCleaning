@@ -53,7 +53,7 @@ public class ManageCustomerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        btnList();
+        ((TabBarActivity)getActivity()).tvTitle.setText("Customers Management");
         items = new ArrayList<>();
          adapter = new CustomerAdapter(getActivity(), items); // Use getActivity() for context
 

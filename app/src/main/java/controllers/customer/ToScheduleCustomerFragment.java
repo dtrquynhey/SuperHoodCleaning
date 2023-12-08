@@ -12,6 +12,8 @@ import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import controllers.TabBarActivity;
+
 
 public class ToScheduleCustomerFragment extends Fragment {
     @Override
@@ -27,6 +29,7 @@ public class ToScheduleCustomerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((TabBarActivity)getActivity()).tvTitle.setText("Pending Customers");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_to_schedule_customer, container, false);
     }

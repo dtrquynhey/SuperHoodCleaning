@@ -39,8 +39,8 @@ public class ModifyCustomerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((TabBarActivity)getActivity()).tvTitle.setText("Modify Customer");
         View view = inflater.inflate(R.layout.fragment_modify_customer, container, false);
-
         Serializable data = getArguments().getSerializable("dataKey");
         if (data instanceof Customer) {
             Customer customer = (Customer) data;

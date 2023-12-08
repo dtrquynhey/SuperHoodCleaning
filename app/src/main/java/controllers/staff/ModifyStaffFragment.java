@@ -66,6 +66,7 @@ public class ModifyStaffFragment extends Fragment implements OnSuccessListener, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((TabBarActivity)getActivity()).tvTitle.setText("Modify Staff");
 
         View view = inflater.inflate(R.layout.fragment_modify_staff, container, false);
 

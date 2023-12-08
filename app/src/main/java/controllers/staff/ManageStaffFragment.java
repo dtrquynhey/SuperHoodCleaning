@@ -37,7 +37,7 @@ public class ManageStaffFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        ((TabBarActivity)getActivity()).tvTitle.setText("Staffs Management");
         return inflater.inflate(R.layout.fragment_manage_staff,container,false);
     }
 

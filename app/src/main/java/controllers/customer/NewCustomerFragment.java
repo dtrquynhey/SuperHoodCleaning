@@ -20,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.superhoodcleaning.R;
 import com.google.firebase.database.DatabaseReference;
+
+import controllers.TabBarActivity;
 import models.Address;
 import models.Customer;
 import services.FirebaseConnection;
@@ -36,6 +38,7 @@ public class NewCustomerFragment extends Fragment implements IAddButton {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((TabBarActivity)getActivity()).tvTitle.setText("New Customer");
         return inflater.inflate(R.layout.fragment_new_customer, container, false);
     }
 

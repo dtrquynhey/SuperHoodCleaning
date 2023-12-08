@@ -40,6 +40,7 @@ import com.google.firebase.storage.StorageReference;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
+import controllers.TabBarActivity;
 import models.Staff;
 import services.FirebaseConnection;
 import services.IAddButton;
@@ -62,6 +63,7 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((TabBarActivity)getActivity()).tvTitle.setText("New Staff");
         return inflater.inflate(R.layout.fragment_new_staff, container, false);
     }
 

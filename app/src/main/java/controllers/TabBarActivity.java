@@ -26,12 +26,13 @@ import controllers.staff.NewStaffFragment;
 import services.IAddButton;
 
 public class TabBarActivity extends AppCompatActivity {
-    TextView tvTitle;
+    public TextView tvTitle;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_bar);
+        tvTitle = findViewById(R.id.topHeading);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
