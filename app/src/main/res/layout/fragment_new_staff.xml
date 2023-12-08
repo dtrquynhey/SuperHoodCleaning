@@ -7,7 +7,8 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
 android:layout_width="match_parent"
-android:layout_height="wrap_content">
+android:layout_height="wrap_content"
+    android:layout_gravity="center">
 
 <LinearLayout
     android:id="@+id/formStaffModify"
@@ -20,7 +21,7 @@ android:layout_height="wrap_content">
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintTop_toBottomOf="parent"
-    android:gravity="center">
+    >
 
     <LinearLayout
         android:id="@+id/staffImageForm"
