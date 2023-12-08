@@ -40,7 +40,12 @@ public class StaffAdapter extends ArrayAdapter<Staff> {
             ImageView imageView = convertView.findViewById(R.id.ivAvatar);
             TextView textView = convertView.findViewById(R.id.tvStaffName);
 
-            Glide.with(convertView).load(staff.getPhotoUrl()).transform(new CircleCrop()).into(imageView);
+            if (!staff.getPhotoUrl().isEmpty()) {
+                Glide.with(convertView).load(staff.getPhotoUrl()).transform(new CircleCrop()).into(imageView);
+            }  else {
+                Glide.with(convertView).load(R.drawable.no_one).transform(new CircleCrop()).into(imageView);
+            }
+            
             textView.setText(String.format("%s %s", staff.getFirstName(), staff.getLastName()));
         }
         return convertView;
