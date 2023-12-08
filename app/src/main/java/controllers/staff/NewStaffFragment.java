@@ -26,6 +26,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.example.superhoodcleaning.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -92,7 +94,11 @@ public class NewStaffFragment extends Fragment implements IAddButton, View.OnCli
                         if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                             Log.d("ActivityResultDebug", result.toString());
                             Bitmap bitmap = convertPhotoResultToBitMap(result);
-                            imageViewPhoto.setImageBitmap(bitmap);
+//                            imageViewPhoto.setImageBitmap(bitmap);
+                            Glide.with(requireContext())
+                                    .load(bitmap)
+                                    .transform(new CircleCrop()) // This will make the image circular
+                                    .into(imageViewPhoto);
                             Toast.makeText(getContext(), "Profile picture uploaded!", Toast.LENGTH_SHORT).show();
                         } else {
                             Log.d("ActivityResultDebug", "Result not OK!");
