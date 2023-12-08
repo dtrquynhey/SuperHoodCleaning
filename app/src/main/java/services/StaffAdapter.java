@@ -9,41 +9,44 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.superhoodcleaning.R;
+import com.google.firebase.database.DatabaseReference;
 
-public class GridAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    private final String[] staffName;
-    private final String[] imgURL;
-    Context context;
+import models.Staff;
+
+public class StaffAdapter extends BaseAdapter {
+
+    private Context context;
+    private ArrayList<Staff> staffs;
+
+    public StaffAdapter(Context context, ArrayList<Staff> staffs) {
+        this.context = context;
+        this.staffs = staffs;
+    }
+
     View view;
     LayoutInflater inflater;
 
-    public GridAdapter(String[] staffName, String[] imgURL, Context context) {
-        this.staffName = staffName;
-        this.imgURL = imgURL;
-        this.context = context;
-    }
-
     @Override
     public int getCount() {
-        return staffName.length;
+        return staffs.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return staffs.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Staff staff = (Staff) getItem(position);
         if (inflater == null) {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
@@ -51,19 +54,19 @@ public class GridAdapter extends BaseAdapter {
         if (convertView == null) {
             view = new View(context);
             view = inflater.inflate(R.layout.grid_item_layout, parent, false);
+
             ImageView imageView = view.findViewById(R.id.ivAvatar);
             TextView textView = view.findViewById(R.id.tvStaffName);
 
+            Glide.with(context).load(staff.getPhotoUrl()).transform(new CircleCrop()).into(imageView);
+            textView.setText(String.format("%s %s", staff.getFirstName(), staff.getLastName()));
             int radius = 50;
-//            Glide.with(context).load(imgURL[position]).apply(RequestOptions.bitmapTransform(new RoundedCorners(radius))).into(imageView);
-            Glide.with(context)
-                    .load(imgURL[position])
-                    .transform(new CircleCrop()) // This will make the image circular
-                    .into(imageView);
-            textView.setText(staffName[position]);
+//            Glide.with(context)
+//                    .load(imgURL[position])
+//                    .transform(new CircleCrop()) // This will make the image circular
+//                    .into(imageView);
+//            textView.setText(staffName[position]);
         }
-
-//        Staff staff =
         return view;
     }
 }
