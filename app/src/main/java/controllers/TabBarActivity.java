@@ -73,7 +73,6 @@ public class TabBarActivity extends AppCompatActivity {
             bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    floatingActionButton.setVisibility(View.VISIBLE);
                     if(item.getItemId() == R.id.iCustomers){
 
                         getSupportFragmentManager().beginTransaction()
@@ -84,7 +83,6 @@ public class TabBarActivity extends AppCompatActivity {
                                 .replace(R.id.fragment_container, manageStaffFragment)
                                 .commit();
                     } else if (item.getItemId() == R.id.iSchedule) {
-                        floatingActionButton.setVisibility(View.INVISIBLE);
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, toScheduleCustomerFragment)
                                 .commit();
