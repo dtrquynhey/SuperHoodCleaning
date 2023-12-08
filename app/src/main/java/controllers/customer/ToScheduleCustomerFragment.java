@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.superhoodcleaning.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -20,7 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import controllers.TabBarActivity;
 import controllers.appointment.NewAppointmentFragment;
@@ -58,7 +62,7 @@ public class ToScheduleCustomerFragment extends Fragment {
 
         dbRef = FirebaseConnection.getDatabaseRef();
         // Find your ListView
-        fetchCustomers();
+        fetchCustomersWithoutAppointments();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_to_schedule_customer, container, false);
     }
@@ -90,20 +94,44 @@ public class ToScheduleCustomerFragment extends Fragment {
         }
     }
 
-    public void fetchCustomers() {
-        dbRef.child("customers").addListenerForSingleValueEvent(new ValueEventListener() {
+    public void fetchCustomersWithoutAppointments() {
+        // First, get a list of all customer IDs that have appointments
+        dbRef.child("appointments").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Customer customer = snapshot.getValue(Customer.class);
-                    customer.setCustomerId(snapshot.getKey());
-                    items.add(customer);
+                final Set<String> customerIdsWithAppointments = new HashSet<>();
+                for (DataSnapshot appointmentSnapshot : dataSnapshot.getChildren()) {
+                    String customerId = appointmentSnapshot.child("customerId").getValue(String.class);
+                    customerIdsWithAppointments.add(customerId);
                 }
-                adapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
+                // Now fetch all customers and exclude the ones with appointments
+                dbRef.child("customers").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot customerSnapshot : dataSnapshot.getChildren()) {
+                            if (!customerIdsWithAppointments.contains(customerSnapshot.getKey())) {
+                                // This customer doesn't have an appointment
+                                Customer customer = customerSnapshot.getValue(Customer.class);
+                                if (customer != null) {
+                                    customer.setCustomerId(customerSnapshot.getKey());
+                                    items.add(customer);
+                                }
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError customerError) {
+                        // Handle the error for customer fetch
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError appointmentError) {
+                // Handle the error for appointments fetch
             }
         });
     }
