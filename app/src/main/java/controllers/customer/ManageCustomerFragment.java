@@ -16,7 +16,6 @@ import com.example.superhoodcleaning.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
@@ -27,7 +26,6 @@ import controllers.TabBarActivity;
 import models.Customer;
 import services.FirebaseConnection;
 import services.CustomerAdapter;
-import services.IAddButton;
 
 
 public class ManageCustomerFragment extends Fragment {
@@ -49,7 +47,7 @@ public class ManageCustomerFragment extends Fragment {
         // Find your ListView
         fetchCustomers();
 
-        return inflater.inflate(R.layout.fragment_customer_management, container, false);
+        return inflater.inflate(R.layout.fragment_manage_customer, container, false);
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
